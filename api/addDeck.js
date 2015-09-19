@@ -1,7 +1,21 @@
 'use strict';
 
-module.exports = function(req, res, next) {
+var Deck = require("../schema/Deck");
 
-	res.end(JSON.stringify({message: 'works!'}));
+module.exports = function(req, res, next) {
+	
+	var newDeck = new Deck({
+		name : 'test-deck' 
+	});
+	
+	// EUH CA MARCHE PAS ICI ...
+	newDeck.save(function (err) {
+		if (err) return console.error(err);
+		console.log('The deck has been added !');
+	});
+	// END
+	
+	
+	res.end(JSON.stringify({deck: newDeck}));
 
 };
