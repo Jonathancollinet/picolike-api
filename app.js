@@ -9,7 +9,7 @@ var express = require('express'),
 // express attributes
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/views')));
 
 // custom attributes in app
 app.set('version', pjson.version || '0.0');
