@@ -8,8 +8,9 @@ var express = require('express'),
 
 // express attributes
 app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('hogan-express'));
 app.set('view engine', 'html');
-app.use(express.static(path.join(__dirname, '/views')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // custom attributes in app
 app.set('version', pjson.version || '0.0');

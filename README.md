@@ -7,6 +7,7 @@ Api of Picolike application , REST Json, with ExpressJS 4.
 | express | 4.13.3 |
 | mongoose | 4.1.7 |
 | body-parser | 1.14.0 |
+| hogan-express | 0.5.2 |
 
 ###Pour utiliser l'API:
 
