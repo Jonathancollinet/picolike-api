@@ -8,13 +8,16 @@ module.exports = function(express, app) {
 	});
 
 	// route for add a deck
-	router.get('/addDeck/', require('../api/updateDecks'));
+	router.get('/addDeck/', require('../api/addDeck'));
 
 	// route for add a card to a deck
-	router.get('/addCardToDeck/', require('../api/updateDecks'));
+	router.get('/addCardToDeck/', require('../api/addCardToDeck'));
 
 	// route for check if deck is up to date
 	router.get('/updateDecks/', require('../api/updateDecks'));
+	
+	// route for find all decks
+	router.get('/getDecks/', require('../api/getDecks'));
 
 	app.use('/', router);
 }
