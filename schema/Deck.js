@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 
 var deckSchema = new mongoose.Schema({
 
-	name: { type: String }
+	name: { type: String, default: 'No name' }
 
 });
 	
 var Deck = mongoose.model('Deck', deckSchema);
-	
+
 module.exports = Deck;

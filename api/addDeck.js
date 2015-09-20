@@ -3,19 +3,16 @@
 var Deck = require("../schema/Deck");
 
 module.exports = function(req, res, next) {
-	
+
 	var newDeck = new Deck({
-		name : 'test-deck' 
+		name : 'test-deck'
 	});
 	
-	// EUH CA MARCHE PAS ICI ...
 	newDeck.save(function (err) {
-		if (err) return console.error(err);
-		console.log('The deck has been added !');
+		if (err) res.end('Error dude!\n' + err);
+		else {
+			res.end('Deck created !\n' + JSON.stringify({deck: newDeck}));
+		}
 	});
-	// END
-	
-	
-	res.end(JSON.stringify({deck: newDeck}));
 
 };

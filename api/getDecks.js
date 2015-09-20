@@ -7,9 +7,8 @@ module.exports = function(req, res, next) {
 	Deck.find({}, function(err, decks) {
 		if (err) return console.error(err);
 
-		console.log(decks);
+		res.end(JSON.stringify({deck: decks}));
 	});
 	
-	res.end("Bon ca deconne la...");
 	
 };

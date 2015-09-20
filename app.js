@@ -25,7 +25,8 @@ app.set('port', conf.port);
 require('./routes/routes.js')(express, app);
 
 //MongoDB Setup
-app.db = mongoose.createConnection(conf.mongodb.uri);
+mongoose.connect(conf.mongodb.uri);
+app.db = mongoose.connection;
 app.db.on('error', console.error.bind(console, '[mongoose] Error: '));
 app.db.once('open', function () {
 	console.log("Connected to MongoDB " + conf.mongodb.uri);

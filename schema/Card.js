@@ -2,16 +2,15 @@
 
 var mongoose = require('mongoose');
 
-exports = module.exports = function(app, mongoose) {
+var cardSchema = new mongoose.Schema({
 
-	var cardSchema = new mongoose.Schema({
+	family: { type: mongoose.Schema.Types.ObjectId, ref: 'Deck' },
+	name: { type: String, default: 'No Name' },
+	isValid: { type: Boolean, default: true },
+	description: { type: String, default: 'No description' }
 	
-		family: { type: mongoose.Schema.Types.ObjectId, ref: 'Deck' },
-		name: { type: String },
-		isValid: { type: Boolean, default: true }
-		
-	});
-	
-	app.db.model('Card', cardSchema);
-	
-};
+});
+
+var Card = mongoose.model('Card', cardSchema);
+
+module.exports = Card;
