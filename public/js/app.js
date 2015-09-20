@@ -10,7 +10,22 @@ picolApp.config(function($routeProvider, $interpolateProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: '../templates/home.html',
-			controller: 'mainController'
+			controller: 'homeController'
+		})
+		.when('/createCard', {
+			templateUrl: '../templates/createCard.html',
+			controller: 'createCardCtrl'
+		})
+		.when('/createDeck', {
+			templateUrl: '../templates/createDeck.html',
+			controller: 'createDeckCtrl'
+		})
+		.when('/addCardToDeck', {
+			templateUrl: '../templates/addCardToDeck.html',
+			controller: 'addCardToDeckCtrl'
+		})
+		.otherwise({
+			redirectTo: '/'
 		});
 
 
@@ -18,18 +33,42 @@ picolApp.config(function($routeProvider, $interpolateProvider) {
 
 picolApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
 
-	$log.warn('yo');
-
 	$scope.links = [
+		{item: "#/", label: "Home Page"},
 		{item: "#/createCard", label: "Créer une carte"},
 		{item: "#/createDeck", label: "Créer un deck"},
 		{item: "#/addCardToDeck", label: "Ajouter une carte dans un deck"},
 	];
 
-	console.log($scope);
-
 }]);
 
 picolApp.controller('homeController', ['$scope', '$log', function($scope, $log) {
+
+}]);
+
+picolApp.controller('createCardCtrl', ['$scope', '$log', function($scope, $log) {
+
+	$scope.card = {};
+
+	$scope.submit = function() {
+		console.log("submit !");
+		console.log($scope.card);
+	}
+
+}]);
+
+picolApp.controller('createDeckCtrl', ['$scope', '$log', function($scope, $log) {
+
+	$scope.deck = {};
+
+	$scope.submit = function() {
+		console.log("submit !");
+		console.log($scope.deck);
+	}
+
+
+}]);
+
+picolApp.controller('addCardToDeckCtrl', ['$scope', '$log', function($scope, $log) {
 
 }]);

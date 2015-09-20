@@ -1,0 +1,15 @@
+<form ng-submit="submit()">
+	<label>Nom de la carte</label>
+	<br/>
+	<input size="50" type="text" placeholder="Ex: Ca va roté du sang ici" ng-model="card.name" />
+	<hr/>
+	<label>Description de la carte</label>
+	<br/>
+	<textarea rows="3" cols="50" ng-model="card.description" name="cardDescription" placeholder="Ex: Toutes les loutres doivent boivent 47 verres, et oui la vie d'une loutre est difficile. Mais leur gosier est aussi dur qu'une planche de fer forgé dans les montagnes du lockNess"></textarea>
+	<hr/>
+	<label>Couleur de la carte</label>
+	<br/>
+	<input  size="50" type="text" placeholder="Ex: bleu voisin"  ng-model="card.color" />
+	<hr/>
+	<input type="submit" value="Créer carte" />
+</form>
