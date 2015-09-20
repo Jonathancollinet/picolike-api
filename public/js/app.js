@@ -1,5 +1,12 @@
+'use strict';
 
 var picolApp = angular.module('picolApp', ['ngRoute']);
+
+picolApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
+
+	
+
+}]);
 
 picolApp.config(function($routeProvider) {
 
@@ -12,5 +19,5 @@ picolApp.config(function($routeProvider) {
 });
 
 picolApp.controller('homeController', ['$scope', '$log', function($scope, $log) {
-	$log.warn("Salut mec c'est Angular ça marche !");
+	$scope.toto = "ototo";
 }]);
