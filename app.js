@@ -4,8 +4,7 @@
 var conf = require('./conf'),
 		express = require('express'),
 		app = express(),
-		path = require('path'),
-		mongoose = require('mongoose');
+		path = require('path');
 
 //Load the configuration file
 app.conf = conf;
@@ -23,15 +22,6 @@ app.set('port', conf.port);
 
 // decentralised routes
 require('./routes/routes.js')(express, app);
-
-//MongoDB Setup
-mongoose.connect(conf.mongodb.uri);
-app.db = mongoose.connection;
-app.db.on('error', console.error.bind(console, '[mongoose] Error: '));
-app.db.once('open', function () {
-	console.log("Connected to MongoDB " + conf.mongodb.uri);
-});
-
 
 
 // listen the incoming connections
