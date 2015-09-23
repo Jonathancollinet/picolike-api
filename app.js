@@ -28,5 +28,5 @@ require('./routes/routes.js')(express, app);
 var server = require('http').createServer(app);
 
 server.listen(app.get('port'), function() {
-	console.log('localhost:', app.get('port'));
+	console.log('Oui, la console est bouré -> htpp;//locahlost/',app.get('port'));
 });

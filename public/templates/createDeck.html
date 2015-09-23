@@ -1,7 +1,17 @@
-<form ng-submit="submit()">
-	<label>Nom du deck</label>
-	<br/>
-	<input type="text" size="50" placeholder="Ex: C'est pas pour les soleilman" ng-model="deck.name" />
-	<hr/>
-	<input type="submit" value="Créer Deck" />
-</form>
+<div ng-controller="createDeckCtrl">
+	<form ng-submit="submit()">
+		<label>Nom du deck</label>
+		<br/>
+		<input type="text" size="50" placeholder="Ex: C'est pas pour les soleilman" ng-model="decks.new" />
+		<hr/>
+		<input type="submit" value="Créer Deck" />
+	</form>
+
+	<h2>Deck List:</h2>
+	<ul id="deck-list" class="">
+    <li ng-repeat="name in decks">
+    	<strong class="deck-name">[[ name.name ]]</strong>
+    	<span class="remove">#remove</span>
+  	</li>
+	</ul>
+</div>

@@ -1,6 +1,6 @@
 'use strict';
 
-var picolApp = angular.module('picolApp', ['ngRoute']);
+var picolApp = angular.module('picolApp', ['ngRoute', 'firebase']);
 
 picolApp.config(function($routeProvider, $interpolateProvider) {
 
@@ -27,8 +27,6 @@ picolApp.config(function($routeProvider, $interpolateProvider) {
 		.otherwise({
 			redirectTo: '/'
 		});
-
-
 });
 
 picolApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
@@ -57,13 +55,14 @@ picolApp.controller('createCardCtrl', ['$scope', '$log', function($scope, $log) 
 
 }]);
 
-picolApp.controller('createDeckCtrl', ['$scope', '$log', function($scope, $log) {
+picolApp.controller('createDeckCtrl', ['$scope', '$log', '$firebaseArray', function($scope, $log, $firebaseArray) {
 
-	$scope.deck = {};
+	var ref = new Firebase("https://picolike.firebaseio.com/decks");
+	
+	$scope.decks =  $firebaseArray(ref);
 
 	$scope.submit = function() {
-		console.log("submit !");
-		console.log($scope.deck);
+		$scope.decks.$add({name: $scope.decks.new });
 	}
 
 
