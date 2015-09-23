@@ -1,15 +1,47 @@
-<form ng-submit="submit()">
-	<label>Nom de la carte</label>
-	<br/>
-	<input size="50" type="text" placeholder="Ex: Ca va roté du sang ici" ng-model="card.name" />
-	<hr/>
-	<label>Description de la carte</label>
-	<br/>
-	<textarea rows="3" cols="50" ng-model="card.description" name="cardDescription" placeholder="Ex: Toutes les loutres doivent boivent 47 verres, et oui la vie d'une loutre est difficile. Mais leur gosier est aussi dur qu'une planche de fer forgé dans les montagnes du lockNess"></textarea>
-	<hr/>
-	<label>Couleur de la carte</label>
-	<br/>
-	<input  size="50" type="text" placeholder="Ex: bleu voisin"  ng-model="card.color" />
-	<hr/>
-	<input type="submit" value="Créer carte" />
-</form>
+<div ng-controller="createCardCtrl">
+	<form ng-submit="submit()">
+		<label>Numero de deck</label>
+		<br/>
+		<select>
+			<option ng-repeat="name in decks" value="[[name.dn]]">[[name.dn]]</option>
+			
+		</select>
+		<input size="50" type="text" placeholder="Ex: C'est ici qu'on envoie du lourd!" ng-model="cards.dn" />
+		<hr/>
+		<label>Nom de la carte</label>
+		<br/>
+		<input size="50" type="text" placeholder="Ex: Ca va roté du sang ici" ng-model="cards.new" />
+		<hr/>
+		<label>Description de la carte</label>
+		<br/>
+		<textarea rows="3" cols="50" ng-model="cards.description" name="cardDescription" placeholder="Ex: Toutes les loutres doivent boivent 47 verres, et oui la vie d'une loutre est difficile. Mais leur gosier est aussi dur qu'une planche de fer forgé dans les montagnes du lockNess"></textarea>
+		<hr/>
+		<label>Couleur de la carte</label>
+		<br/>
+		<input  size="50" type="color" ng-model="cards.color" id='picker' />
+		<hr/>
+		<input type="submit" value="Créer carte" />
+	</form>
+	
+	<h2>Card List:</h2>
+	<ul id="card-list" class="">
+    <li ng-repeat="name in cards" class="ng-style: background-color: 'cards.cardColor';">
+    	<strong class="card-name">[[ name.name ]]</strong>&nbsp;<span class="dn">[[ name.dn ]]</span>
+    	<p class="card-desc" color="[[ name.color ]]">[[ name.desc ]]</p>
+			<div class="remove">#remove</div>
+  	</li>
+	</ul>
+</div>
+
+
+<script>
+$("#picker").spectrum({
+    color: "#FFF",
+    showInput: true,
+    showInitial: true,
+    allowEmpty: false,
+		change: function(color) {
+			$scope.cards.color = color.toHexString();
+		}
+});
+</script>

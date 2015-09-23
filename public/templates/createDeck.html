@@ -4,13 +4,17 @@
 		<br/>
 		<input type="text" size="50" placeholder="Ex: C'est pas pour les soleilman" ng-model="decks.new" />
 		<hr/>
+		<label>Numéro du deck</label>
+		<br>
+		<input type="text" size="50" placeholder="Ex: Va y Mr le chiffre" ng-model="decks.num" />
+		<hr/>
 		<input type="submit" value="Créer Deck" />
 	</form>
 
 	<h2>Deck List:</h2>
 	<ul id="deck-list" class="">
     <li ng-repeat="name in decks">
-    	<strong class="deck-name">[[ name.name ]]</strong>
+    	<strong class="deck-name">[[ name.name ]]</strong>&nbsp;<span class="dn">[[ name.num ]]</span>
     	<span class="remove">#remove</span>
   	</li>
 	</ul>
