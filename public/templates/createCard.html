@@ -2,11 +2,9 @@
 	<form ng-submit="submit()">
 		<label>Numero de deck</label>
 		<br/>
-		<select>
-			<option ng-repeat="name in decks" value="[[name.dn]]">[[name.dn]]</option>
-			
+		<select ng-model="deckselected">
+			<option ng-repeat="name in decks" value="[[name.num]]">[[name.name]]</option>
 		</select>
-		<input size="50" type="text" placeholder="Ex: C'est ici qu'on envoie du lourd!" ng-model="cards.dn" />
 		<hr/>
 		<label>Nom de la carte</label>
 		<br/>
@@ -25,7 +23,7 @@
 	
 	<h2>Card List:</h2>
 	<ul id="card-list" class="">
-    <li ng-repeat="name in cards" class="ng-style: background-color: 'cards.cardColor';">
+    <li ng-repeat="name in cards" class="card-item">
     	<strong class="card-name">[[ name.name ]]</strong>&nbsp;<span class="dn">[[ name.dn ]]</span>
     	<p class="card-desc" color="[[ name.color ]]">[[ name.desc ]]</p>
 			<div class="remove">#remove</div>
