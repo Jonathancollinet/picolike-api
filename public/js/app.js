@@ -61,12 +61,11 @@ picolApp.controller('createCardCtrl', ['$scope', '$log', '$firebaseArray', funct
 	
 	$scope.cards.$loaded()
 		.then(function(data) {
-			$(document).ready(function(){
+			
 				for (var i = 0; i < data.length; i++) {
 					$scope.cards.cardColor = data[i].color.toString();
 					console.log("color:", $scope.cards.cardColor);
 				};
-			});
 		});
 }]);
 
@@ -82,6 +81,3 @@ picolApp.controller('createDeckCtrl', ['$scope', '$log', '$firebaseArray', funct
 
 }]);
 
-picolApp.controller('addCardToDeckCtrl', ['$scope', '$log', function($scope, $log) {
-
-}]);

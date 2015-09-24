@@ -3,7 +3,8 @@
 		<label>Numero de deck</label>
 		<br/>
 		<select ng-model="deckselected">
-			<option ng-repeat="name in decks" value="[[name.num]]">[[name.name]]</option>
+			<option value="">Choisir un deck</option>
+			<option ng-repeat="name in decks" value="[[name.num]]">[[name.num]]: [[name.name]]</option>
 		</select>
 		<hr/>
 		<label>Nom de la carte</label>
@@ -25,7 +26,7 @@
 	<ul id="card-list" class="">
     <li ng-repeat="name in cards" class="card-item">
     	<strong class="card-name">[[ name.name ]]</strong>&nbsp;<span class="dn">[[ name.dn ]]</span>
-    	<p class="card-desc" color="[[ name.color ]]">[[ name.desc ]]</p>
+    	<p class="card-desc" color="[[ name.cardColor ]]">[[ name.desc ]]</p>
 			<div class="remove">#remove</div>
   	</li>
 	</ul>
@@ -34,7 +35,8 @@
 
 <script>
 $("#picker").spectrum({
-    color: "#FFF",
+   	color: "#f00",
+	 	flat: true,
     showInput: true,
     showInitial: true,
     allowEmpty: false,
