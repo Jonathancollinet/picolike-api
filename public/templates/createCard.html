@@ -2,7 +2,7 @@
 	<form ng-submit="submit()">
 		<label>Numero de deck</label>
 		<br/>
-		<select ng-model="deckselected">
+		<select ng-model="deckselect">
 			<option value="">Choisir un deck</option>
 			<option ng-repeat="name in decks" value="[[name.num]]">[[name.num]]: [[name.name]]</option>
 		</select>
@@ -17,11 +17,11 @@
 		<hr/>
 		<label>Couleur de la carte</label>
 		<br/>
-		<input  size="50" type="color" ng-model="cards.color" id='picker' />
+		<input  size="50" type="color" ng-model="cards.color" id='picker'/>
 		<hr/>
 		<input type="submit" value="Créer carte" />
 	</form>
-	
+
 	<h2>Card List:</h2>
 	<ul id="card-list" class="">
     <li ng-repeat="name in cards" class="card-item">

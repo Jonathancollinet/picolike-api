@@ -48,20 +48,21 @@ picolApp.controller('createCardCtrl', ['$scope', '$log', '$firebaseArray', funct
 
 	var ref = new Firebase("https://picolike.firebaseio.com/cards");
 	var ref2 = new Firebase("https://picolike.firebaseio.com/decks");
-	
+
 	$scope.cards = $firebaseArray(ref);
 	$scope.decks = $firebaseArray(ref2);
-	
+
 	$scope.submit = function() {
-		$scope.cards.$add({dn: $scope.deckselected,
+		console.log($scope.cards.color);
+		$scope.cards.$add({dn: $scope.deckselect,
 		name: $scope.cards.new, desc: $scope.cards.description,
 							color: $scope.cards.color
 											});
 	}
-	
+
 	$scope.cards.$loaded()
 		.then(function(data) {
-			
+
 				for (var i = 0; i < data.length; i++) {
 					$scope.cards.cardColor = data[i].color.toString();
 					console.log("color:", $scope.cards.cardColor);
@@ -72,7 +73,7 @@ picolApp.controller('createCardCtrl', ['$scope', '$log', '$firebaseArray', funct
 picolApp.controller('createDeckCtrl', ['$scope', '$log', '$firebaseArray', function($scope, $log, $firebaseArray) {
 
 	var ref = new Firebase("https://picolike.firebaseio.com/decks");
-	
+
 	$scope.decks =  $firebaseArray(ref);
 
 	$scope.submit = function() {
@@ -80,4 +81,3 @@ picolApp.controller('createDeckCtrl', ['$scope', '$log', '$firebaseArray', funct
 	}
 
 }]);
-
